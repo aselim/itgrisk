@@ -1,0 +1,40 @@
+<h1>Listing nodes</h1>
+
+<table>
+  <tr>
+    <th>Team</th>
+    <th>Node</th>
+    <th>Details</th>
+    <th>Power</th>
+    <th>Aquired</th>
+    <th>Defense</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @nodes.each do |node| %>
+  <tr>
+    <% if node.Team != nil %>
+	<td><%= Team.find(node.Team).team %></td>
+    <% else %>
+	<td><%= node.Team %></td>
+    <% end %>
+    <td><%= node.Node %></td>
+    <td><%= node.Details %></td>
+    <td><%= node.Power %></td>
+    <td><%= node.Aquired %></td>
+    <td><%= node.Defense %></td>
+    <td><%= link_to 'Show', node %></td>
+    <td><% if node.Team == current_user.team %>
+		<%= link_to 'Defend', edit_node_path(node) %>
+	<% else %>
+		<%= link_to 'Attack', edit_node_path(node) %>
+	<% end %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

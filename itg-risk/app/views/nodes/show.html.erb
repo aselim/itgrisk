@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Team:</b>
+  <%= @node.Team %>
+</p>
+
+<p>
+  <b>Node:</b>
+  <%= @node.Node %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @node.Details %>
+</p>
+
+<p>
+  <b>Power:</b>
+  <%= @node.Power %>
+</p>
+
+<p>
+  <b>Aquired:</b>
+  <%= @node.Aquired %>
+</p>
+
+<p>
+  <b>Attack:</b>
+  <%= @node.Attack %>
+</p>
+
+<p>
+  <b>Defense:</b>
+  <%= @node.Defense %>
+</p>
+
+
+<%= link_to 'Edit', edit_node_path(@node) %> |
+<%= link_to 'Back', nodes_path %>

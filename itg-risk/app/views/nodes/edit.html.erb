@@ -1,0 +1,27 @@
+<h1>Attack</h1>
+
+<%= form_for @node do |f| %>
+  <% if @node.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @node.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% if current_user.team == @node.Team  %>  
+  <p>
+    <%= f.label :Defense %><br />
+    <%= f.text_field :Defense %>
+  </p> 
+<% else %>
+  <p>
+    <%= f.label :attack%><br />
+    <%= f.collection_select(:Attack, Attack.all, :id, :attack ) %>
+  </p>
+<% end %>
+  <p class="button"><%= f.submit %></p>
+<% end %>

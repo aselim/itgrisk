@@ -1,0 +1,40 @@
+<h1>Listing teams</h1>
+
+<table>
+  <tr>
+    <th>Team</th>
+    <th>Power</th>
+    <th>Utilized</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @teams.each do |team| %>
+  <tr>
+    <td><%= team.team %></td>
+    <td><% @power =  Node.sum(:Power, :conditions => {:Team => team.id})+1 %>
+	<%= @power %>
+    </td>
+    <td><% @util =  (2*Node.find(:all, :conditions => ["Defense LIKE ? and Team = ?", "%AV%", team.id]).count) + (4*Node.find(:all, :conditions => ["Defense LIKE ? and Team = ?", "%HFW%", team.id]).count) + (8*Node.find(:all, :conditions => ["Defense LIKE ? and Team = ?", "%HIPS%", team.id]).count) %>
+	<%= @util %>
+    </td>
+    <td><%if @power >  @util %>
+		<%=  'Online' %>
+        <% else %>
+		<%=  'Offline' %>
+        <% end %>
+    </td>
+    <td><% if current_user == nil %>
+	<% elsif team.id != current_user.team %>
+	    <%= link_to 'DoS Attack', edit_team_path(team) %>
+        <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Team', new_team_path %>

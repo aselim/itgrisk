@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  team: MyString
+  power: 1
+  utilized: 1
+  Attack: MyText
+  status: false
+
+two:
+  team: MyString
+  power: 1
+  utilized: 1
+  Attack: MyText
+  status: false

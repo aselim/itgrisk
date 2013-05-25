@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  Team: 1
+  Node: MyString
+  Details: MyString
+  Power: 1
+  Aquired: false
+  Attack: MyText
+  Defense: MyText
+
+two:
+  Team: 1
+  Node: MyString
+  Details: MyString
+  Power: 1
+  Aquired: false
+  Attack: MyText
+  Defense: MyText

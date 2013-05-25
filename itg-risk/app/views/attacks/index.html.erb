@@ -1,0 +1,23 @@
+<h1>Listing attacks</h1>
+
+<table>
+  <tr>
+    <th>Attack</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @attacks.each do |attack| %>
+  <tr>
+    <td><%= attack.attack %></td>
+    <td><%= link_to 'Show', attack %></td>
+    <td><%= link_to 'Edit', edit_attack_path(attack) %></td>
+    <td><%= link_to 'Destroy', attack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Attack', new_attack_path %>

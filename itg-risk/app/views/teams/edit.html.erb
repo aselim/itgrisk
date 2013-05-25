@@ -1,0 +1,24 @@
+<h1>Attack</h1>
+
+<%= form_for @team do |f| %>
+  <% if @team.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @team.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+
+  <p>
+    <%= f.label :attack%><br />
+    <%= f.text_field :Attack %>
+  </p>
+  <p class="button"><%= f.submit %></p>
+<% end %>
